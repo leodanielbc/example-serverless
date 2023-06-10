@@ -1,18 +1,25 @@
-service: LeodanLetsGoServerless
+service: LeoDanLetsGoServerless
 provider:
   name: aws
   region: us-east-1
-  role: arn:aws:iam::859647202319:role/LetsGoServerlessLambdaExecution
+  role: arn:aws:iam::246172463623:role/GoServerless
   runtime: python3.8
   timeout: 360
 functions:
-  LeodanSuma:
-    name: LeodanSuma
+  LeoDanSuma:
+    name: LeoDanSuma
     handler: lambda_handler.suma
     environment:
-      PASSWORD: password_lambda
+      PASSWORD: myPassword
     maximumRetryAttempts: 0
     description: Function that takes two operands and returns the sum of the two operands
+  LeoDanResta:
+    name: LeoDanResta
+    handler: lambda_handler.resta
+    environment:
+      PASSWORD: myPassword
+    maximumRetryAttempts: 0
+    description: Function that takes two operands and returns the rest of the two operands
 package:
   patterns:
     - '!node_modules/**'
